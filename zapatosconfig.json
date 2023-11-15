@@ -1,0 +1,14 @@
+{
+    "db": {
+        "connectionString": "postgres://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME"
+    },
+    "outDir": "./src",
+    "schemas": {
+        "public": {
+            "include": [
+                "users"
+            ],
+            "exclude": []
+        }
+    }
+}
