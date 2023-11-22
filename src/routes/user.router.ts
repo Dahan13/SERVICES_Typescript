@@ -12,26 +12,20 @@ async function userRouter(fastify: FastifyInstance) {
     fastify.route({
         method: 'POST',
         url: '/',
-        handler: async (request, reply) => {
-            controllers.createUser(request, reply)
-        },
+        handler: controllers.createUser,
     })
 
     fastify.route({
         method: 'GET',
         url: '/:id',
-        handler: async (request, reply) => {
-            controllers.getUser(request, reply)
-        },
+        handler: controllers.getUser,
     })
 
     fastify.route({
         method: 'PUT',
         url: '/:id',
 
-        handler: async (request, reply) => {
-            controllers.updateUser(request, reply)
-        },
+        handler: controllers.updateUser,
     })
 }
 
