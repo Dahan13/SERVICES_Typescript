@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  postgresql:
+    image: postgres:16.1
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
+    volumes:
+      - database_data:/var/lib/postgresql/data
+
+  webapp:
+    build: ./api
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    volumes:
+      - ./webapp:/usr/src/app/
+    links:
+      - postgresql
+    environment:
+      PGHOST: db
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgres
